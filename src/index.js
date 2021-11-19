@@ -7,8 +7,20 @@ import ExchangeRateService from "./js/exchangerate.js";
 
 function displayExchangeRate (response) {
   console.log("API: " + response);
+  const keys = Object.keys(response.conversion_rates);
+  console.log("test: " + keys);
+  keys.forEach((key, index) => {
+    console.log(`${key}: ${response.conversion_rates[index]}`)
+  })
+  // let currencies = [];
+  // for ( let i = 0 ; i < keys.length ; i++) {
+  //   currencies.push(`${keys[i]}`);
+  //   $('.test1').html(currencies);
+  //   console.log("test2; " + currencies);
+  // }
   $('.showCurrency').text(`USD to is: ${response.conversion_rates.BGN}`);
-  }
+}
+
 
 
 function displayError(error) {
