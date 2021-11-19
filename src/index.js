@@ -6,22 +6,17 @@ import ExchangeRateService from "./js/exchangerate.js";
 
 
 function displayExchangeRate (response) {
-  console.log("API: " + response);
   const keys = Object.keys(response.conversion_rates);
+  // const number1 = 10
+  // const type = "USD";
   console.log("test: " + keys);
-  keys.forEach((key, index) => {
+  keys.forEach((key) => {
     console.log(`${key}: ${response.conversion_rates[key]}`);
-  })
-  Object.values(response.conversion_rates).forEach(val => console.log(val));
-  const entries = Object.entries(response.conversion_rates);
-  console.log("entries: " + entries)
+    const type = response.conversion_rates[key];
+    console.log("type: " + type);
+    $('.test1').append(`${key}: ${type} <br>`);
 
-  // let currencies = [];
-  // for ( let i = 0 ; i < keys.length ; i++) {
-  //   currencies.push(`${keys[i]}`);
-  //   $('.test1').html(currencies);
-  //   console.log("test2; " + currencies);
-  // }
+  });
   $('.showCurrency').text(`USD to is: ${response.conversion_rates.BGN}`);
 }
 
@@ -52,3 +47,23 @@ $(document).ready(function() {
       });
   });
 });
+
+
+
+
+
+
+
+
+
+
+  // Object.values(response.conversion_rates).forEach(val => console.log(val));
+  // const entries = Object.entries(response.conversion_rates);
+  // console.log("entries: " + entries)
+
+  // let currencies = [];
+  // for ( let i = 0 ; i < keys.length ; i++) {
+  //   currencies.push(`${keys[i]}`);
+  //   $('.test1').html(currencies);
+  //   console.log("test2; " + currencies);
+  // }
