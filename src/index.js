@@ -5,8 +5,13 @@ import './css/styles.css';
 import ExchangeRateService from "./js/exchangerate.js";
 
 
-function displayExchangeRate (response, usdNumber, currency) {
+function displayExchangeRate (response) {
+  console.log("API: " + response);
+  $('.showCurrency').text(`USD to is: ${response.base_code}`);
+}
 
+function displayError(error) {
+  $('.displayError').text(`${error}`);
 }
 
 
@@ -24,6 +29,9 @@ $(document).ready(function() {
           throw Error(`ExchangeRate API error: ${response.message}`);
         }
         displayExchangeRate(response, usdNumber, currency);
+      })
+      .catch(function(error) {
+        displayError(error.message);
       });
   });
 });
