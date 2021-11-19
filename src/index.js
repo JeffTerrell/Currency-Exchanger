@@ -7,7 +7,13 @@ import ExchangeRateService from "./js/exchangerate.js";
 
 function displayExchangeRate (response) {
   console.log("API: " + response);
-  $('.showCurrency').text(`USD to is: ${response.base_code}`);
+  let currencyList = [];
+  console.log(currencyList);
+  for (let i = 0 ; i < response.conversion_rates.length ; i++) {
+    currencyList.push(`Test - ${response.conversion_rates[0].AED}`);
+    console.log("dfal: " + currencyList);
+    $('.showCurrency').html(currencyList);
+  }
 }
 
 function displayError(error) {
