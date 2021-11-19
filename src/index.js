@@ -10,8 +10,12 @@ function displayExchangeRate (response) {
   const keys = Object.keys(response.conversion_rates);
   console.log("test: " + keys);
   keys.forEach((key, index) => {
-    console.log(`${key}: ${response.conversion_rates[index]}`)
+    console.log(`${key}: ${response.conversion_rates[key]}`);
   })
+  Object.values(response.conversion_rates).forEach(val => console.log(val));
+  const entries = Object.entries(response.conversion_rates);
+  console.log("entries: " + entries)
+
   // let currencies = [];
   // for ( let i = 0 ; i < keys.length ; i++) {
   //   currencies.push(`${keys[i]}`);
