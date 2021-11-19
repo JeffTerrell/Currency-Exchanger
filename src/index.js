@@ -6,16 +6,27 @@ import ExchangeRateService from "./js/exchangerate.js";
 
 
 function displayExchangeRate (response) {
-  const keys = Object.keys(response.conversion_rates);
+  const keys = Object.keys(response.conversion_rates); // this code can be used to display every currency exchange rate relative to 1USD. How do I specify based on user input???
   // const number1 = 10
-  // const type = "USD";
-  console.log("test: " + keys);
+  const type = "USD";
   keys.forEach((key) => {
-    console.log(`${key}: ${response.conversion_rates[key]}`);
-    const type = response.conversion_rates[key];
-    console.log("type: " + type);
-    $('.test1').append(`${key}: ${type} <br>`);
+    console.log(`${key}: ${response.conversion_rates[key]}`); 
+    const valueOfKey = response.conversion_rates[key];
+    console.log("keyvalue: "+ valueOfKey);
+    const found = keys.find(type);
+    console.log("Found: " + found);
 
+    
+    // const filteredData = keys.filter(value => {
+    //   const typeMatches = value.response.conversion_rates[key].toLowerCase().includes("AED");
+
+    //   return typeMatches;
+    // })
+    // console.log("testing: " + filteredData);
+
+
+    $('.test2').append(`USD-${key}: ${valueOfKey} <br>`);
+    $('.test1').append(`${key}: ${valueOfKey} <br>`);
   });
   $('.showCurrency').text(`USD to is: ${response.conversion_rates.BGN}`);
 }
