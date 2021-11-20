@@ -8,7 +8,6 @@ import ExchangeRateService from "./js/exchangerate.js";
 function displayExchangeRate (response, usdNumber, currency) {
   const keys = Object.keys(response.conversion_rates);
   const currency2 = currency;
-  console.log("currency2: "+ currency2);
   keys.forEach((key) => { 
     const valueOfKey = response.conversion_rates[key];
     if (currency === "select") {
@@ -43,7 +42,6 @@ $(document).ready(function() {
   $('#currencyConvert').click(function() {
     const usdNumber = $('#usdNumber').val();
     const currency = $('#currency').val();
-    console.log("currency: " + currency);
     $('#usdNumber').val("");
     $('#currency').val("");
 
