@@ -24,6 +24,10 @@ function displayExchangeRate (response, usdNumber, currency) {
         $(".displayError2").text("Error: Refresh Webpage");
       }
     
+function converter(currency, number) {
+  const output = number * currency;
+  return output;
+}
 
 
     // const keyCurrency = keys[keys.length];
