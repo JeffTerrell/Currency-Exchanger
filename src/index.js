@@ -6,15 +6,11 @@ import ExchangeRateService from "./js/exchangerate.js";
 
 
 function displayExchangeRate (response, usdNumber, currency) {
-  const keys = Object.keys(response.conversion_rates); // this code can be used to display every currency exchange rate relative to 1USD. How do I specify based on user input???
-  // const number1 = 10
+  const keys = Object.keys(response.conversion_rates);
   const currency2 = currency;
   console.log("currency2: "+ currency2);
-  keys.forEach((key) => {
-    // console.log(`${key}: ${response.conversion_rates[key]}`); 
+  keys.forEach((key) => { 
     const valueOfKey = response.conversion_rates[key];
-    // const keyValue = key;
-    // console.log("please: " + keyValue);
     if (currency === "select") {
       return $(".displayError2").text("Please select a valid currency to convert");
     }
@@ -28,29 +24,6 @@ function converter(currency, number) {
   const output = number * currency;
   return output;
 }
-
-
-    // const keyCurrency = keys[keys.length];
-    // console.log("keyCurrency: " + keyCurrency);
-
-    // let array = []
-    // for (let i = 0 ; i < keys.length ; i++) {
-    //   array.push(`${keys[i]}`);
-    // }
-    // console.log("array: " + array);
-
-
-    // const found = keys.find(type);
-    // console.log("Found: " + found);
-
-    
-    // const filteredData = keys.filter(value => {
-    //   const typeMatches = value.response.conversion_rates[key].toLowerCase().includes("AED");
-
-    //   return typeMatches;
-    // })
-    // console.log("testing: " + filteredData);
-
 
     $('.test2').append(`USD-${key}: ${valueOfKey} <br>`);
     $('.test1').append(`${key}: ${valueOfKey} <br>`);
@@ -86,23 +59,3 @@ $(document).ready(function() {
       });
   });
 });
-
-
-
-
-
-
-
-
-
-
-  // Object.values(response.conversion_rates).forEach(val => console.log(val));
-  // const entries = Object.entries(response.conversion_rates);
-  // console.log("entries: " + entries)
-
-  // let currencies = [];
-  // for ( let i = 0 ; i < keys.length ; i++) {
-  //   currencies.push(`${keys[i]}`);
-  //   $('.test1').html(currencies);
-  //   console.log("test2; " + currencies);
-  // }
