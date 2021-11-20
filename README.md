@@ -1,15 +1,20 @@
-# _{Application Name}_
+# Currency Converter
 
-#### By _**{List of contributors}**_
+#### Jeff Terrell
 
-#### _{Brief description of application}_
+#### Calculates exchange rates for USD
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* JavaScript
+* jQuery
+* npm
+* webpack
+* ESLint
+* Babel
+* HTML
+* CSS
+* Bootstrap
 
 ## Description
 
