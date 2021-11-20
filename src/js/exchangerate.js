@@ -13,7 +13,7 @@ export default class ExchangeRateService {
   }
 
   converter(currency, number) {
-    const output = number * currency;
+    const output = parseFloat((number * currency).toFixed(2));
     return output;
   }
 }

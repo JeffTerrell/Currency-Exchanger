@@ -13,29 +13,28 @@ function displayExchangeRate (response, usdNumber, currency) {
       return $(".displayError2").text("Please select a valid currency to convert");
     }
     if (key === currency) {
-      $('.test3').text(`USD-${currency}: ${new ExchangeRateService().converter(valueOfKey, usdNumber)}`);
+      $('.conversion').text(`USD-${currency}: ${new ExchangeRateService().converter(valueOfKey, usdNumber)}`);
     } else {
-        $(".displayError2").text("Error: Refresh Webpage");
+        $(".displayError2").text("Error: Refresh Webpage Test");
       }
     
 
-    $('.test2').append(`USD-${key}: ${valueOfKey} <br>`);
+    $('.displayFullList').append(`USD-${key}: ${valueOfKey} <br>`);
     
   });
 }
-
-
 
 function displayError(error) {
   $('.displayError').text(`${error}`);
 }
 
 
-
 $(document).ready(function() {
   $('#currencyConvert').click(function() {
     const usdNumber = $('#usdNumber').val();
+    console.log("number" + usdNumber);
     const currency = $('#currency').val();
+    console.log("Currency: " + currency);
     $('#usdNumber').val("");
     $('#currency').val("");
 

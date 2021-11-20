@@ -1,0 +1,16 @@
+.main {
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  box-shadow: 1px 1px 15px green;
+  text-align: center;
+}
+
+.conversion {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 2%;
+  margin-left: 33%;
+  margin-right: 33%;
+  box-shadow: 1px 1px 15px rgb(0, 0, 0);
+}
