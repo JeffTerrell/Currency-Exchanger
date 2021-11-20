@@ -11,4 +11,9 @@ export default class ExchangeRateService {
       return Error(error);
     }); 
   }
+
+  converter(currency, number) {
+    const output = number * currency;
+    return output;
+  }
 }

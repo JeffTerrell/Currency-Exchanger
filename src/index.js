@@ -7,27 +7,21 @@ import ExchangeRateService from "./js/exchangerate.js";
 
 function displayExchangeRate (response, usdNumber, currency) {
   const keys = Object.keys(response.conversion_rates);
-  const currency2 = currency;
   keys.forEach((key) => { 
     const valueOfKey = response.conversion_rates[key];
     if (currency === "select") {
       return $(".displayError2").text("Please select a valid currency to convert");
     }
     if (key === currency) {
-      $('.test3').text(`USD-${currency}: ${converter(valueOfKey, usdNumber)}`);
+      $('.test3').text(`USD-${currency}: ${new ExchangeRateService().converter(valueOfKey, usdNumber)}`);
     } else {
         $(".displayError2").text("Error: Refresh Webpage");
       }
     
-function converter(currency, number) {
-  const output = number * currency;
-  return output;
-}
 
     $('.test2').append(`USD-${key}: ${valueOfKey} <br>`);
-    $('.test1').append(`${key}: ${valueOfKey} <br>`);
+    
   });
-  $('.showCurrency').text(`USD to is: ${response.conversion_rates.BGN}`);
 }
 
 
