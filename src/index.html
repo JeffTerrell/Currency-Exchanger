@@ -11,7 +11,7 @@
         <div class="col-md-6">
           <label for="usdNumber">From USD Amount:</label>
           <br>
-          <input id="usdNumber" type="number" step=0.01 placeholder="USD-Dollar"></input>
+          <input id="usdNumber" type="number" step=0.01 placeholder="USD-Dollar" class="form-control"></input>
         </div>
         <div class="col-md-6">
           <label for="currency">To Other Currency:</label>
@@ -19,7 +19,10 @@
             <option value="select">Select a currency...</option>
             <option value="AED">AED</option>
             <option value="AFN">AFN</option>
-            <option value="BAM">BAM</option>
+            <option value="ALL">ALL</option>
+            <option value="AMD">AMD</option>
+            <option value="ANG">ANG</option>
+            <option value="AOA">AOA</option>
           </select>
         </div>
       </div>      
@@ -27,6 +30,11 @@
       <div class="conversion"></div>
       <div class="displayError"></div>
       <div class="displayError2"></div>
+    </div>
+    <div class="tester">
+      <label for="testing">Testing:</label>
+      <select id="testing" class="form-control">
+      </select>
     </div>
     <div class='displayFullList'></div>
   </div>  
