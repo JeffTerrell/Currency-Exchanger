@@ -1,7 +1,7 @@
 .main {
   margin-top: 5%;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
   box-shadow: 1px 1px 15px green;
   text-align: center;
 }
@@ -14,3 +14,23 @@
   margin-right: 33%;
   box-shadow: 1px 1px 15px rgb(0, 0, 0);
 }
+
+.appendFullList {
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 205px;
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}  
+
+.showFullList {
+  display: none;
+  text-align: center;
+  margin-top: 2%;
+}
+
