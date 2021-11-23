@@ -9,6 +9,8 @@ function clearAll () {
   $('#toCurrency').val("");
   $('#fromCurrency').val("");
   $('.conversion').text("");
+  $('.appendFullList').html("");
+  $('.showFullList').hide();
   $("#displayError").text("");
   $("#displayError2").text("");
 }
@@ -28,7 +30,7 @@ function displayExchangeRate (response, number, fromCurrency, toCurrency) {
     }
 
     $('.showFullList').show();  
-    $('.appendFullList').append(`${fromCurrency}-${key}: ${valueOfKey} <br>`); // need code to clear append each time on new submit
+    $('.appendFullList').append(`${fromCurrency}-${key}: ${valueOfKey} <br>`);
     
   });
 }

@@ -2,6 +2,8 @@
   margin-top: 5%;
   margin-left: 25%;
   margin-right: 25%;
+  padding-left: 1%;
+  padding-right: 1%;
   box-shadow: 1px 1px 15px rgb(110, 110, 110);
   text-align: center;
 }
@@ -32,5 +34,27 @@
   display: none;
   text-align: center;
   margin-top: 2%;
+}
+
+.form-control {
+  border: 2px solid black;
+}
+
+.form-control:focus {
+  border-color: rgb(0, 99, 0);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 131, 33, 0.6);
+}
+
+/* #fromCurrency {
+  border: 1px solid rgb(116, 0, 0);
+}
+
+#toCurrency {
+  margin-right: 2%;
+} */
+
+.btn {
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
