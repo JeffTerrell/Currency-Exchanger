@@ -4,6 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExchangeRateService from "./js/exchangerate.js";
 
+function clearAll () {
+  $('#number').val("");
+  $('#toCurrency').val("");
+  $('#fromCurrency').val("");
+  $('.conversion').text("");
+  $("#displayError").text("");
+  $("#displayError2").text("");
+}
 
 function displayExchangeRate (response, number, fromCurrency, toCurrency) {
   const keys = Object.keys(response.conversion_rates);
@@ -13,7 +21,7 @@ function displayExchangeRate (response, number, fromCurrency, toCurrency) {
   keys.forEach((key) => { 
     const valueOfKey = response.conversion_rates[key];
     if (toCurrency === null) {
-      return $(".displayError2").text("Please select a currency to convert");
+      return $("#displayError2").text("Please select a currency to convert");
     }
     if (key === toCurrency) {
       return $('.conversion').text(`${fromCurrency}-${toCurrency}: ${new ExchangeRateService().converter(valueOfKey, number)}`);
@@ -26,15 +34,13 @@ function displayExchangeRate (response, number, fromCurrency, toCurrency) {
 }
 
 function displayError(error) {
-  $('.displayError').text(`${error}`);
+  $('#displayError').text(`${error}`);
 }
 
 
 
 
 $(document).ready(function() {
-
-
   ExchangeRateService.getExchangeRate()
   .then(function(response) {    
     const keys2 = Object.keys(response.conversion_rates);
@@ -44,12 +50,12 @@ $(document).ready(function() {
     }
     $("#fromCurrency").html(options);
     $("#toCurrency").html(options);
+
     if (response instanceof Error) {
       throw Error(`ExchangeRate API error: ${response.message}`);
     }
     $('#toCurrency').val("");
     $('#fromCurrency').val("");
-
 
     $('#currencyConvert').click(function() {
       const number = $('#number').val();
@@ -58,14 +64,10 @@ $(document).ready(function() {
       console.log(" From Currency: " + fromCurrency);
       const toCurrency = $('#toCurrency').val();
       console.log("To Currency: " + toCurrency);
-      $('#number').val("");
-      $('#toCurrency').val("");
-      $('#fromCurrency').val("");
-      $('.displayError').val("");
-      $('.dispalyError2').val("");
 
       ExchangeRateService.getExchangeRateFromCurrency(fromCurrency)
       .then(function(response) {
+        clearAll();
         if (response instanceof Error) {
           throw Error(`Please select both a "from" and "to" currency: ${response.message}`);
         }
@@ -76,7 +78,6 @@ $(document).ready(function() {
       });
     });
   });
-
 });
 
 
@@ -88,13 +89,13 @@ $(document).ready(function() {
 
 // TEST CODE
 
-// let options = '';
+// let options = '';    *************** creates an array from object and makes a dropdown select list on html
 // for (var i = 0; i < keys.length; i++) {
 //   options += '<option value="' + keys[i]+ '">' + keys[i] + '</option>';
 // }
 // $("#testing").html(options);
 
-// let curObject = keys.reduce((acc, elem) => {
+// let curObject = keys.reduce((acc, elem) => {  *********creates an object with specified key : value pair
 //   acc[elem] = elem
 //   return acc
 // }, {})

@@ -1,8 +1,8 @@
-.main {
+#main {
   margin-top: 5%;
-  margin-left: 10%;
-  margin-right: 10%;
-  box-shadow: 1px 1px 15px green;
+  margin-left: 25%;
+  margin-right: 25%;
+  box-shadow: 1px 1px 15px rgb(110, 110, 110);
   text-align: center;
 }
 
