@@ -21,19 +21,36 @@
   margin-top: 1%;
   margin-left: auto;
   margin-right: auto;
-  width: 200px;
   height: 205px;
   overflow: scroll;
+  overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+  width: 15px;
 }  
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 155, 52); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00522c; 
+}
 
 .showFullList {
   display: none;
   text-align: center;
   margin-top: 2%;
+  margin-left: 43%;
+  margin-right: 43%;
+  box-shadow: 1px 1px 15px rgb(0, 0, 0);
 }
 
 .form-control {
@@ -45,16 +62,7 @@
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 131, 33, 0.6);
 }
 
-/* #fromCurrency {
-  border: 1px solid rgb(116, 0, 0);
-}
-
-#toCurrency {
-  margin-right: 2%;
-} */
-
 .btn {
   margin-top: 1%;
   margin-bottom: 1%;
 }
-
