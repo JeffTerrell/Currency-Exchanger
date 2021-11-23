@@ -17,9 +17,6 @@ function clearAll () {
 
 function displayExchangeRate (response, number, fromCurrency, toCurrency) {
   const keys = Object.keys(response.conversion_rates);
-  const ans = Array.isArray(keys);
-  console.log(ans);
-
   keys.forEach((key) => { 
     const valueOfKey = response.conversion_rates[key];
     if (toCurrency === null) {
@@ -28,18 +25,14 @@ function displayExchangeRate (response, number, fromCurrency, toCurrency) {
     if (key === toCurrency) {
       return $('.conversion').text(`${fromCurrency}-${toCurrency}: ${new ExchangeRateService().converter(valueOfKey, number)}`);
     }
-
     $('.showFullList').show();  
-    $('.appendFullList').append(`${fromCurrency}-${key}: ${valueOfKey} <br>`);
-    
+    $('.appendFullList').append(`${fromCurrency}-${key}: ${valueOfKey} <br>`);    
   });
 }
 
 function displayError(error) {
   $('#displayError').text(`${error}`);
 }
-
-
 
 
 $(document).ready(function() {
@@ -61,11 +54,8 @@ $(document).ready(function() {
 
     $('#currencyConvert').click(function() {
       const number = $('#number').val();
-      console.log("number" + number);
       const fromCurrency = $('#fromCurrency').val();
-      console.log(" From Currency: " + fromCurrency);
       const toCurrency = $('#toCurrency').val();
-      console.log("To Currency: " + toCurrency);
 
       ExchangeRateService.getExchangeRateFromCurrency(fromCurrency)
       .then(function(response) {
@@ -102,3 +92,7 @@ $(document).ready(function() {
 //   return acc
 // }, {})
 // console.log(curObject);
+
+
+// const ans = Array.isArray(keys);
+// console.log(ans);
