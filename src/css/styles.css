@@ -6,6 +6,7 @@
   padding-right: 1%;
   box-shadow: 1px 1px 15px rgb(110, 110, 110);
   text-align: center;
+  background-color: rgb(235, 235, 235);
 }
 
 .conversion {
@@ -15,6 +16,7 @@
   margin-left: 33%;
   margin-right: 33%;
   box-shadow: 1px 1px 15px rgb(0, 0, 0);
+  background-color: white;
 }
 
 .appendFullList {

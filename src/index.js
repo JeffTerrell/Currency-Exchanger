@@ -23,7 +23,7 @@ function displayExchangeRate (response, number, fromCurrency, toCurrency) {
       return $("#displayError2").text("Please select a currency to convert");
     }
     if (key === toCurrency) {
-      return $('.conversion').text(`${fromCurrency}-${toCurrency}: ${new ExchangeRateService().converter(valueOfKey, number)}`);
+      return $('.conversion').text(`${number}${fromCurrency} = ${new ExchangeRateService().converter(valueOfKey, number)}${toCurrency}`);
     }
     $('.showFullList').show();  
     $('.appendFullList').append(`${fromCurrency}-${key}: ${valueOfKey} <br>`);    
