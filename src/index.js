@@ -26,7 +26,7 @@ function displayExchangeRate (response, number, fromCurrency, toCurrency) {
       return $('.conversion').text(`${number}${fromCurrency} = ${new ExchangeRateService().converter(valueOfKey, number)}${toCurrency}`);
     }
     $('.showFullList').show();  
-    $('.appendFullList').append(`${fromCurrency}-${key}: ${valueOfKey} <br>`);    
+    $('.appendFullList').append(`${fromCurrency}-${key}: ${parseFloat(valueOfKey).toFixed(2)} <br>`);    
   });
 }
 
