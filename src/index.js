@@ -16,8 +16,8 @@ function clearAll () {
 }
 
 function displayExchangeRate (response, number, fromCurrency, toCurrency) {
-  const keys = Object.keys(response.conversion_rates);
-  keys.forEach((key) => { 
+  const symbols = Object.keys(response.conversion_rates);
+  symbols.forEach((key) => { 
     const valueOfKey = response.conversion_rates[key];
     if (toCurrency === null) {
       return $("#displayError2").text("Please select a currency to convert");
@@ -26,7 +26,7 @@ function displayExchangeRate (response, number, fromCurrency, toCurrency) {
       return $('.conversion').text(`${number}${fromCurrency} = ${new ExchangeRateService().converter(valueOfKey, number)}${toCurrency}`);
     }
     $('.showFullList').show();  
-    $('.appendFullList').append(`${fromCurrency}-${key}: ${parseFloat(valueOfKey).toFixed(2)} <br>`);    
+    $('.appendFullList').append(`${number}${fromCurrency} = ${parseFloat(valueOfKey * number).toFixed(2)}${key} <br>`);    
   });
 }
 
@@ -38,10 +38,10 @@ function displayError(error) {
 $(document).ready(function() {
   ExchangeRateService.getExchangeRate()
   .then(function(response) {    
-    const keys2 = Object.keys(response.conversion_rates);
+    const symbolsList = Object.keys(response.conversion_rates);
     let options = '';
-    for (var i = 0; i < keys2.length; i++) {
-      options += '<option value="' + keys2[i]+ '">' + keys2[i] + '</option>';
+    for (var i = 0; i < symbolsList.length; i++) {
+      options += '<option value="' + symbolsList[i]+ '">' + symbolsList[i] + '</option>';
     }
     $("#fromCurrency").html(options);
     $("#toCurrency").html(options);
