@@ -71,28 +71,3 @@ $(document).ready(function() {
     });
   });
 });
-
-
-
-
-
-
-
-
-// TEST CODE
-
-// let options = '';    *************** creates an array from object and makes a dropdown select list on html
-// for (var i = 0; i < keys.length; i++) {
-//   options += '<option value="' + keys[i]+ '">' + keys[i] + '</option>';
-// }
-// $("#testing").html(options);
-
-// let curObject = keys.reduce((acc, elem) => {  *********creates an object with specified key : value pair
-//   acc[elem] = elem
-//   return acc
-// }, {})
-// console.log(curObject);
-
-
-// const ans = Array.isArray(keys);
-// console.log(ans);
